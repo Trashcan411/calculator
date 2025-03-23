@@ -9,37 +9,40 @@ id = "multiply" x
 id = "divisive" /
 id = "minus" +/-
 id = "comma" .*/
-function add (...args){
-    const ad = args.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue;}
-    , arr[0])
-    return ad
+function add (a, b){
+    return a + b
     
 }
-function substract (...args){
-    const subs = args.reduce((accumulator, currentValue) => {
-        return accumulator - currentValue;}
-    , arr[0])
-    return subs
+function substract (a, b){
+    return a-b
 }
 
-function multiply (...args){
-    const add = args.reduce((accumulator, currentValue) => {
-        return accumulator * currentValue;}
-    , arr[0])
+function multiply (a, b){
+    return a * b
     
 }
 
-function multiply (...args){
-    const add = args.reduce((accumulator, currentValue) => {
-        return accumulator / currentValue;}
-    , arr[0])
+function divide (a, b){
+    return a / b
     
 }
 const nmbA = 0
 const nmbB = 0
-const variable = ""
+const operator = ""
 
-function operate (nmbA, nmbB, variable) {
+function operate (nmbA, nmbB, operator) {
+    if (operator === "+"){
+        add(nmbA, nmbB)
+
+    } else if (operator === "-"){
+        substract(nmbA, nmbB)
+
+    } else if (operator === "x"){
+        multiply(nmbA, nmbB)
+
+    } else if (operator === "/"){
+        divide(nmbA, nmbB)
+
+    }
 
 }
