@@ -32,17 +32,28 @@ const operator = ""
 
 function operate (nmbA, nmbB, operator) {
     if (operator === "+"){
-        add(nmbA, nmbB)
-
+        add(nmbA, nmbB);
     } else if (operator === "-"){
-        substract(nmbA, nmbB)
-
+        substract(nmbA, nmbB);
     } else if (operator === "x"){
-        multiply(nmbA, nmbB)
-
+        multiply(nmbA, nmbB);
     } else if (operator === "/"){
-        divide(nmbA, nmbB)
-
+        divide(nmbA, nmbB);
     }
+}
+
+const divNumb = document.getElementById("number")
+
+for (i = 0; i < 10; i++){
+    const numb = document.createElement("button");
+    numb.classList.add('button-number');
+    numb.textContent = i
+    divNumb.appendChild(numb)
+}
+const operatorSymbol = ['+', '-', '←','^', 'x','/', '+/-', '.']
+
+for (i = 0;i < operatorSymbol.length; i++){
 
 }
+
+
