@@ -26,10 +26,13 @@ function divide (a, b){
     return a / b
     
 }
-const nmbA = 0
-const nmbB = 0
+const nmbA = ''
+const nmbB = ''
 const operator = ""
 
+const equal = document.getElementById("equal")
+
+equal.addEventListener("click", operate(nmbA, nmbB, operator))
 function operate (nmbA, nmbB, operator) {
     if (operator === "+"){
         add(nmbA, nmbB);
@@ -43,17 +46,33 @@ function operate (nmbA, nmbB, operator) {
 }
 
 const divNumb = document.getElementById("number")
-
-for (i = 0; i < 10; i++){
-    const numb = document.createElement("button");
-    numb.classList.add('button-number');
-    numb.textContent = i
-    divNumb.appendChild(numb)
-}
+const storeValue = []
 const operatorSymbol = ['+', '-', '←','^', 'x','/', '+/-', '.']
 
-for (i = 0;i < operatorSymbol.length; i++){
+for (i = 1; i < 11 + operatorSymbol.length; i++){
+    if (i > 10){
+        const numb = document.createElement("button");
+        numb.classList.add('button-number');
+        numb.textContent = operatorSymbol.at(i-11)
+    
+        numb.addEventListener("click",()=>{
+        storeValue.push(operatorSymbol.at(i-11))}
+        )
+    
+        divNumb.appendChild(numb)
 
+    }else {
+        const numb = document.createElement("button");
+        numb.classList.add('button-number');
+        numb.textContent = i
+    
+        numb.addEventListener("click",()=>{
+        storeValue.push(i)}
+        )
+    
+        divNumb.appendChild(numb)
+    }
+    
 }
 
 
