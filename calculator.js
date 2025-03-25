@@ -29,9 +29,47 @@ function divide (a, b){
 const nmbA = ''
 const nmbB = ''
 const operator = ""
+const display = document.getElementById("display")
+const divNumb = document.getElementById("number")
+const storeValue = []
+const operatorSymbol = ['+', '-', '←','^', 'x','/', '+/-', '.']
+display.textContent = ""
 
-const equal = document.getElementById("equal")
+for (i = 1; i < 11 + operatorSymbol.length; i++){
+    if (i > 10){
+        const numb = document.createElement("button");
+        numb.classList.add(`button-symbol-${i}`);
+        numb.textContent = operatorSymbol.at(i-11)
+    
+        numb.addEventListener("click",(e)=>{
+        storeValue.push(operatorSymbol.at(i-11))
+        display.textContent = ""
+        }
+        )
+    
+        divNumb.appendChild(numb)
 
+    }else {
+        const numb = document.createElement("button");
+        numb.classList.add(`button-number-${i}`);
+        numb.textContent = i;
+        divNumb.appendChild(numb)
+    
+        numb.addEventListener("click",(e)=>{
+        const numbvalue = document.getElementById(`button-number-${i}`)
+        numbvalue = numb.value;
+        numbvalue = i
+        storeValue.push(numbvalue);
+        display.textContent = `${numbvalue}`;
+        }
+        )
+    }
+    
+}
+console.log(storeValue)
+const equal = document.createElement("button")
+equal.classList.add("button-equal")
+equal.textContent = "="
 equal.addEventListener("click", operate(nmbA, nmbB, operator))
 function operate (nmbA, nmbB, operator) {
     if (operator === "+"){
@@ -44,35 +82,4 @@ function operate (nmbA, nmbB, operator) {
         divide(nmbA, nmbB);
     }
 }
-
-const divNumb = document.getElementById("number")
-const storeValue = []
-const operatorSymbol = ['+', '-', '←','^', 'x','/', '+/-', '.']
-
-for (i = 1; i < 11 + operatorSymbol.length; i++){
-    if (i > 10){
-        const numb = document.createElement("button");
-        numb.classList.add('button-number');
-        numb.textContent = operatorSymbol.at(i-11)
-    
-        numb.addEventListener("click",()=>{
-        storeValue.push(operatorSymbol.at(i-11))}
-        )
-    
-        divNumb.appendChild(numb)
-
-    }else {
-        const numb = document.createElement("button");
-        numb.classList.add('button-number');
-        numb.textContent = i
-    
-        numb.addEventListener("click",()=>{
-        storeValue.push(i)}
-        )
-    
-        divNumb.appendChild(numb)
-    }
-    
-}
-
-
+divNumb.appendChild(equal)
