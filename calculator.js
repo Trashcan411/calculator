@@ -40,10 +40,10 @@ for (i = 1; i < 11 + operatorSymbol.length; i++){
         const numb = document.createElement("button");
         numb.classList.add(`button-symbol-${i}`);
         numb.textContent = operatorSymbol.at(i-11)
-    
+        
         numb.addEventListener("click",(e)=>{
-        storeValue.push(operatorSymbol.at(i-11))
-        display.textContent = ""
+        storeValue.push(e.currentTarget.textContent);
+        display.textContent = e.currentTarget.textContent;
         }
         )
     
@@ -53,19 +53,19 @@ for (i = 1; i < 11 + operatorSymbol.length; i++){
         const numb = document.createElement("button");
         numb.classList.add(`button-number-${i}`);
         numb.textContent = i;
-        divNumb.appendChild(numb)
-    
+        /*const numb1 = document.getElementsByClassName(`button-number-${i}`)*/
         numb.addEventListener("click",(e)=>{
-        const numbvalue = document.getElementById(`button-number-${i}`)
-        numbvalue = numb.value;
-        numbvalue = i
-        storeValue.push(numbvalue);
-        display.textContent = `${numbvalue}`;
+        storeValue.push(e.currentTarget.textContent);
+        display.textContent += e.currentTarget.textContent;
         }
         )
+    
+        divNumb.appendChild(numb)
+        
     }
     
 }
+
 console.log(storeValue)
 const equal = document.createElement("button")
 equal.classList.add("button-equal")
